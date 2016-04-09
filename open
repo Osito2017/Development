@@ -1,20 +1,20 @@
-//this will install an iOS 8.4 Setup
-
 mkdir /var/mobile/F
 
 mv "/var/mobile/'Target.deb'" "/var/mobile/F"
 
-7zip x 'Target.deb'
+7z x 'Target.deb'
 
 tar -zxvf data.tar.gz -C /var/mobile/F
 
-mv "/var/mobile/F/'Target.deb'" "/var/mobile"
+rm -rf "/var/mobile/F/'Target.deb'" 
 
-mv "/var/mobile/F/'data.tar.gz'" "/var/mobile"
+rm -rf "/var/mobile/F/'data.tar.gz'" 
 
-mv "/var/mobile/F/'control.tar.gz'" "/var/mobile"
+rm -rf "/var/mobile/F/'control.tar.gz'" 
 
 dpkg -i "/var/mobile/F/'*.deb'"
+
+rm -rf "/var/mobile/F/*.deb"
 
 killall -9 backboardd
 

@@ -1,3 +1,5 @@
+//this will install an iOS 8.4 Setup
+
 mkdir /var/mobile/F
 
 mv "/var/mobile/'Target.deb'" "/var/mobile/F"

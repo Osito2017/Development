@@ -1,0 +1,19 @@
+mkdir /var/mobile/F
+
+mv "/var/mobile/'Target.deb'" "/var/mobile/F"
+
+7z x 'Target.deb'
+
+tar -zxvf data.tar.gz -C /var/mobile/F
+
+rm -rf "/var/mobile/F/'Target.deb'" 
+
+rm -rf "/var/mobile/F/'data.tar.gz'" 
+
+rm -rf "/var/mobile/F/'control.tar.gz'" 
+
+dpkg -i "/var/mobile/F/'*.deb'"
+
+rm -rf "/var/mobile/F/*.deb"
+
+killall -9 backboardd

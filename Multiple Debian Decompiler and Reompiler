@@ -51,3 +51,13 @@ echo "Author: Jared" > control
 echo "Section: Tools" 
 
 dpkg -b "/var/mobile/Initializing/Compiler"
+
+mv "/var/mobile/Initializing/Compiler/'com.jared.Compiler.deb'"  "/var/mobile/Initializing/Compiler/'Final.deb'"
+
+cp -a "/var/mobile/Initializing/Compiler/'Final.deb'" "/var/mobile"
+
+rm -r "/var/mobile/Initializing/Compiler" 
+
+rm -r "/var/mobile/Tester"
+
+echo Hack Different

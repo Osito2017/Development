@@ -18,8 +18,14 @@ tar -zxvf data.tar.gz -C /var/mobile/Initializing
 
 tar -zxvf data1.tar.gz -C /var/mobile/Initializing
 
-rm -r "var/moblile/Initializing/control.tar.gz"
+rm -r "var/moblile/Initializing/'control.tar.gz'"
 
 #in attempt to delete multiple control files - I will recompile with my own control file through echo command? Or just have a new one included into the Tester directory
 
-rm -r "var/moblile/Initializing/control1.tar.gz"
+rm -r "var/moblile/Initializing/'control1.tar.gz'"
+
+mkdir "/var/mobile/Initializing/Compiler"
+
+cd /var/mobile/Initializing/Compiler 
+
+cp -r "/var/mobile/Initializing" "/var/mobile/Initializing/Compiler" && find .-type f ! -iname "*.tar.gz" -delete

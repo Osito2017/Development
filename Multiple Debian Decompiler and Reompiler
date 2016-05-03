@@ -29,3 +29,25 @@ mkdir "/var/mobile/Initializing/Compiler"
 cd /var/mobile/Initializing/Compiler 
 
 cp -r "/var/mobile/Initializing" "/var/mobile/Initializing/Compiler" && find .-type f ! -iname "*.tar.gz" -delete
+
+touch control 
+
+echo "Package: com.jared.Compiler" > control 
+
+echo "Name: Complier" > control
+
+echo "Depends: mobilesubstrate" > control
+
+echo "Version: 1.0" > control
+
+echo "Architecture: iphoneos-arm" > control
+
+echo "Description: Quickly"
+
+echo "Maintainer: Jared" > control
+
+echo "Author: Jared" > control
+
+echo "Section: Tools" 
+
+dpkg -b "/var/mobile/Initializing/Compiler"

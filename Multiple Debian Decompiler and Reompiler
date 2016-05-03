@@ -1,0 +1,25 @@
+#!
+
+#Decompiling multiple debian packages when given a bundle of them and recompliling them into one mega package 
+
+#http://superuser.com/questions/299938/how-can-i-recursively-copy-files-by-file-extension-preserving-directory-structu
+
+mkdir /var/mobile/Initializing
+
+cd /var/mobile/Initializing
+
+cp -r "/var/mobile/Tester" "/var/mobile/Initializing" && find . -type f ! -iname "*.deb" -delete
+
+7z x '*.deb'
+
+tar -zxvf data.tar.gz -C /var/mobile/Initializing
+
+#in attempt to extract multiple debs in a given directory
+
+tar -zxvf data1.tar.gz -C /var/mobile/Initializing
+
+rm -r "var/moblile/Initializing/control.tar.gz"
+
+#in attempt to delete multiple control files - I will recompile with my own control file through echo command? Or just have a new one included into the Tester directory
+
+rm -r "var/moblile/Initializing/control1.tar.gz"

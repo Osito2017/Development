@@ -1,0 +1,10 @@
+  #find the file on your own you fuck
+  cd ~/Desktop/Work
+  mkdir /Desktop/Work/Contents
+  mv "*.ipsw" "*.zip"
+  7z -x "*.zip" > ~/Desktop/Work/Contents
+  mkdir ~/Desktop/Dual
+  find .-type f ! -iname "iBoot.*.img3" "LLB.*.img3" "DeviceTree.*.img3" && cp -r "~/Desktop/Work/Contents" "~/Desktop/Dual"
+  echo Hack Different
+  pause
+  

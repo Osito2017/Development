@@ -1,1 +1,5 @@
-gptfdisk/dev/rdisk0s1 | p | i | 
+gptfdisk/dev/rdisk0s1 | p |  > LogicalSize.txt
+gptfdisk/dev/rdisk0s1 | i | |2| > Unique GUID.txt
+#gptfdisk/dev/rdisk0s1 |d| |2| |n|
+
+ 

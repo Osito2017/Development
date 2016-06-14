@@ -1,0 +1,23 @@
+mkdir Package
+cd Package
+mkdir var && cd var 
+mkdir mobile && cd mobile
+mkdir Library && cd Library
+mkdir Preferences
+cd .. && cd .. && cd .. 
+mkdir DEBIAN && touch preinst && echo "rm -r /var/mobile/Library/Preferences/com.fidele007.hotdogpref.plist" >> preinst && cd DEBIAN && touch control
+echo "Author: Osito2017" >> control
+echo "Maintainer: TheBigCheese2017" >> control echo "Name: Hotdog Backup"  >> control
+echo "Package: com.osito.currentsetup" >> control 
+echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog" >> control 
+echo "Section: Themes" >> control
+echo "Version: 1.0" >> control 
+echo "Architecture: iphoneos-arm" >> control echo "Description: Some generic description" >> control
+echo  >> control
+cd ..
+cd ..
+cd Library
+cd Preferences 
+cp com.fidele007.hotdogpref.plist /var/mobile/Package/var/mobile/Library/Preferences
+cd .. && cd ..
+dpkg-deb -b -Zgzip Package

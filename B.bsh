@@ -12,7 +12,7 @@ echo "Package: com.osito.currentsetup" >> control
 echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog" >> control 
 echo "Section: Themes" >> control
 echo "Version: 1.0" >> control 
-echo "Architecture: iphoneos-arm" >> control echo "Description: Some generic description" >> control
+echo "Architecture: iphoneos-arm" >> control && echo "Description: Some generic description" >> control
 echo  >> control
 cd ..
 cd ..

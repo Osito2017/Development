@@ -1,0 +1,23 @@
+#this tool will backup package names and repositories. Compiles it into a neat package
+mkdir Package && cd Package && mkdir var && cd var
+mkdir mobile && cd mobile && mkdir packages && touch packages.txt
+cd .. && cd ..
+mkdir etc && cd etc && mkdir apt && cd apt && mkdir sources.list.d && cd sources.list.d
+cd .. && cd .. && cd .. && cd .. && cd .. && cd .. && cd ..
+cd etc && cd apt && cd sources.list.d 
+cp cydia.list /var/mobile/Package/etc/apt/sources.list.d
+cd .. && cd .. && cd ..
+cd var && cd mobile && cd Package
+mkdir DEBIAN && touch preinst && echo "rm -r /etc/apt/sources.list.d/cydia.list" >> preinst && cd DEBIAN && touch control
+echo "Author: Osito2017" >> control
+echo "Maintainer: TheBigCheese2017" >> control && echo "Name: Sources and Packages"  >> control
+echo "Package: com.osito.currentsourcesandpkgs" >> control 
+echo "Depends: mobilesubstrate (>= 0.9.5000)" >> control 
+echo "Section: Tweaks" >> control
+echo "Version: 1.0" >> control 
+echo "Architecture: iphoneos-arm" >> control && echo "Description: Some generic description" >> control
+echo  >> control
+dpkg --get-selections | grep -v deinstall > /var/mobile/Package/var/mobile/packages/packages.txt
+cd ..
+cd .. 
+dpkg-deb -b -Zgzip Package

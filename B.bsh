@@ -14,7 +14,7 @@ echo "Author: Osito2017" >> control
 echo "Maintainer: TheBigCheese2017" >> control
 echo "Name: Current Setup"  >> control
 echo "Package: com.osito.currentsetup" >> control
-echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog, me.chewitt.cmc " >> control
+echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog, me.chewitt.cmc, com.groovycarrot.groovylock, com.groovycarrot.groovyapi, com.matchstic.infostats2 " >> control
 echo "Section: Tweaks" >> control
 echo "Version: 1.0" >> control
 echo "Architecture: iphoneos-arm" >> control
@@ -28,8 +28,9 @@ cp com.fidele007.hotdogpref.plist /var/mobile/Package/var/mobile/Library/Prefere
 cp me.chewitt.MCPrefs.plist /var/mobile/Package/var/mobile/Library/Preferences
 cd .. && cd .. && cd .. && cd ..
 cd etc && cd apt && cd sources.list.d
-cp cydia.list /var/mobile/Package/etc/apt/sources.list.d/a
+cp cydia.list /var/mobile/Package/etc/apt/sources.list.d/
 cd .. && cd .. && cd ..
 cd var && cd mobile && cd Library && cd GroovyLock
-cp /var/mobile/Library/GroovyLock/ /var/mobile/Package/var/mobile/Library/GroovyLock
+cp -r /var/mobile/Library/GroovyLock/ /var/mobile/Package/var/mobile/Library/GroovyLock
 dpkg-deb -b -Zgzip Package
+echo Hack Different Cosita

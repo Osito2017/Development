@@ -1,5 +1,3 @@
-B.bsh (now supports Messages Customiser and Hotdog)
-
 mkdir Package
 cd Package
 mkdir etc

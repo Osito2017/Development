@@ -1,23 +1,37 @@
+B.bsh (now supports Messages Customiser and Hotdog)
+
 mkdir Package
 cd Package
-mkdir var && cd var 
+mkdir etc
+cd etc && mkdir apt && cd apt
+mkdir sources.list.d
+cd .. && cd ..
+mkdir var && cd var
 mkdir mobile && cd mobile
 mkdir Library && cd Library
-mkdir Preferences
-cd .. && cd .. && cd .. 
-mkdir DEBIAN && touch preinst && echo "rm -r /var/mobile/Library/Preferences/com.fidele007.hotdogpref.plist" >> preinst && cd DEBIAN && touch control
+mkdir Preferences && mkdir GroovyLock
+cd .. && cd .. && cd ..
+mkdir DEBIAN && touch preinst && echo "rm -r /var/mobile/Library/Preferences/com.fidele007.hotdogpref.plist" &&  echo "rm -r /var/mobile/Library/Preferences/me.chewitt.MCPrefs.plist">> preinst && cd DEBIAN && touch control
 echo "Author: Osito2017" >> control
-echo "Maintainer: TheBigCheese2017" >> control echo "Name: Hotdog Backup"  >> control
-echo "Package: com.osito.currentsetup" >> control 
-echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog" >> control 
-echo "Section: Themes" >> control
-echo "Version: 1.0" >> control 
-echo "Architecture: iphoneos-arm" >> control && echo "Description: Some generic description" >> control
+echo "Maintainer: TheBigCheese2017" >> control
+echo "Name: Current Setup"  >> control
+echo "Package: com.osito.currentsetup" >> control
+echo "Depends: firmware (>= 7.0), mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.2), applist, com.fidele007.hotdog, me.chewitt.cmc " >> control
+echo "Section: Tweaks" >> control
+echo "Version: 1.0" >> control
+echo "Architecture: iphoneos-arm" >> control
+echo "Description: Some generic description" >> control
 echo  >> control
 cd ..
 cd ..
 cd Library
-cd Preferences 
+cd Preferences
 cp com.fidele007.hotdogpref.plist /var/mobile/Package/var/mobile/Library/Preferences
-cd .. && cd ..
+cp me.chewitt.MCPrefs.plist /var/mobile/Package/var/mobile/Library/Preferences
+cd .. && cd .. && cd .. && cd ..
+cd etc && cd apt && cd sources.list.d
+cp cydia.list /var/mobile/Package/etc/apt/sources.list.d/a
+cd .. && cd .. && cd ..
+cd var && cd mobile && cd Library && cd GroovyLock
+cp /var/mobile/Library/GroovyLock/ /var/mobile/Package/var/mobile/Library/GroovyLock
 dpkg-deb -b -Zgzip Package
